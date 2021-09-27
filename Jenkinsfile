@@ -23,7 +23,7 @@ node {
     }
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
-        stage('Create Scratch Org') {
+        stage('Auth to Org') {
             if (isUnix()) {
                 rc = sh returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} -d --instanceurl ${SFDC_HOST}"
             } else {
@@ -156,7 +156,7 @@ node {
             if (isUnix()) {
                 testStatus = sh returnStdout: true, script: "sfdx force:apex:test:run --testlevel RunLocalTests -u ${HUB_ORG}"
             } else {
-                //testStatus = sh returnStdout: true, script: "sfdx force:apex:test:run --testlevel RunLocalTests -u ${HUB_ORG} --json"
+                testStatus = sh returnStdout: true, script: "sfdx force:apex:test:run --testlevel RunLocalTests -u ${HUB_ORG} --json"
             }
             //println(testStatus)
         }
