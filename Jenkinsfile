@@ -140,6 +140,8 @@ node {
            //  }
         }
         stage('Import Data to test ORG') {
+            println(' import skipped')
+            /*
             if (isUnix()) {
                 println(' importing data to test org')
                 dataimport = sh returnStdout: true, script: "sfdx force:data:tree:import --plan ./data/data-plan.json -u ${HUB_ORG} --json"
@@ -151,6 +153,7 @@ node {
             if (dataimport != 0) {
                 println(dataimport)
             }
+            */
         }
         stage('Run Local Test Classes') {
             if (isUnix()) {
