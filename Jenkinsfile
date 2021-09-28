@@ -154,9 +154,9 @@ node {
         }
         stage('Run Local Test Classes') {
             if (isUnix()) {
-                testStatus = sh returnStdout: true, script: "sfdx force:apex:test:run --testlevel RunLocalTests -u ${HUB_ORG}"
+                //testStatus = sh returnStdout: true, script: "sfdx force:apex:test:run --testlevel RunLocalTests -u ${HUB_ORG}"
             } else {
-                testStatus = sh returnStdout: true, script: "sfdx force:apex:test:run --testlevel RunLocalTests -u ${HUB_ORG} --json"
+                //testStatus = sh returnStdout: true, script: "sfdx force:apex:test:run --testlevel RunLocalTests -u ${HUB_ORG} --json"
             }
             //println(testStatus)
         }
