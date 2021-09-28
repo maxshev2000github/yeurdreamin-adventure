@@ -134,10 +134,10 @@ node {
                 //permset = bat returnStdout: true, script: "sfdx force:user:permset:assign -n yeurdreamin -u ${HUB_ORG} --json"
             }
             
-            println(permset)
-            if (permset != 0) {
-                //error 'permission set assignment failed'
-            }
+           // println(permset)
+           // if (permset != 0) {
+           //      error 'permission set assignment failed'
+           //  }
         }
         stage('Import Data to test ORG') {
             if (isUnix()) {
